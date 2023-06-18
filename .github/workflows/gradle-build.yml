@@ -55,4 +55,4 @@ jobs:
       - name: Build with Gradle
         uses: gradle/wrapper-action@v6
         with:
-          tasks: 'build'
+          tasks: 'jar'
