@@ -10,10 +10,6 @@ on:
       - main
       - development
 
-env:
-  NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
-  NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
-
 permissions:
   contents: read
 
@@ -62,8 +58,6 @@ jobs:
         run: chmod +x ./gradlew
       - name: publish
         env:
-          EDPN_NEXUS_USERNAME: ${{ secrets.NEXUS_USERNAME }}
-          EDPN_NEXUS_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
           ORG_GRADLE_PROJECT_edpnNexusUsername: ${{ secrets.NEXUS_USERNAME }}
           ORG_GRADLE_PROJECT_edpnNexusPassword: ${{ secrets.NEXUS_PASSWORD }}
         uses: gradle/gradle-build-action@v2
