@@ -13,6 +13,9 @@ compileJava.options.encoding = 'UTF-8'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://nexus.edpn.io'
+    }
 }
 
 ext {
@@ -46,5 +49,57 @@ tasks.named('test') {
 tasks.withType(JavaCompile).tap {
     configureEach {
         options.encoding = 'UTF-8'
+    }
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        backendUtil(MavenPublication) {
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def nexusUsername = findProperty('edpnNexusUsername')
+            def nexusPassword = findProperty('edpnNexusPassword')
+            if (nexusUsername && nexusPassword) {
+                credentials {
+                    username = nexusUsername
+                    password = nexusPassword
+                }
+            }
+            if (version.endsWith('-SNAPSHOT')) {
+                url 'https://nexus.edpn.io/repository/maven-snapshots/'
+            } else {
+                url 'https://nexus.edpn.io/repository/maven-releases/'
+            }
+        }
+    }
+}
+
+javadoc {
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
     }
 }
