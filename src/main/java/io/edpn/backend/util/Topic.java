@@ -35,8 +35,8 @@ public interface Topic {
             this.topicName = topicName;
         }
 
-        public String getFormattedTopicName(String module) {
-            return String.format(topicName, module);
+        public String getFormattedTopicName(Module module) {
+            return String.format(topicName, module.getName());
         }
     }
 }
