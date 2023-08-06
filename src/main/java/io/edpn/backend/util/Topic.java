@@ -22,12 +22,12 @@ public interface Topic {
     }
 
     enum Response {
-        STATION_ARRIVAL_DISTANCE_RESPONSE("stationArrivalDistanceResponse"),
-        STATION_MAX_LANDING_PAD_SIZE_RESPONSE("stationMaxLandingPadSizeResponse"),
-        STATION_IS_PLANETARY_RESPONSE("stationIsPlanetaryResponse"),
-        STATION_REQUIRE_ODYSSEY_RESPONSE("stationRequireOdysseyResponse"),
-        SYSTEM_COORDINATES_RESPONSE("systemCoordinatesResponse"),
-        SYSTEM_ELITE_ID_RESPONSE("systemEliteIdResponse");
+        STATION_ARRIVAL_DISTANCE_RESPONSE("%s_stationArrivalDistanceResponse"),
+        STATION_MAX_LANDING_PAD_SIZE_RESPONSE("%s_stationMaxLandingPadSizeResponse"),
+        STATION_IS_PLANETARY_RESPONSE("%s_stationIsPlanetaryResponse"),
+        STATION_REQUIRE_ODYSSEY_RESPONSE("%s_stationRequireOdysseyResponse"),
+        SYSTEM_COORDINATES_RESPONSE("%s_systemCoordinatesResponse"),
+        SYSTEM_ELITE_ID_RESPONSE("%s_systemEliteIdResponse");
 
         private final String topicName;
 
@@ -35,8 +35,8 @@ public interface Topic {
             this.topicName = topicName;
         }
 
-        public String getTopicName() {
-            return topicName;
+        public String getFormattedTopicName(String module) {
+            return String.format(topicName, module);
         }
     }
 }
