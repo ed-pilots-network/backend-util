@@ -3,12 +3,12 @@ package io.edpn.backend.util;
 public interface Topic {
 
     enum Request {
-        STATION_ARRIVAL_DISTANCE_REQUEST("stationArrivalDistanceRequest"),
-        STATION_MAX_LANDING_PAD_SIZE_REQUEST("stationMaxLandingPadSizeRequest"),
-        STATION_IS_PLANETARY_REQUEST("stationIsPlanetaryRequest"),
-        STATION_REQUIRE_ODYSSEY_REQUEST("stationRequireOdysseyRequest"),
-        SYSTEM_COORDINATES_REQUEST("systemCoordinatesRequest"),
-        SYSTEM_ELITE_ID_REQUEST("systemEliteIdRequest");
+        STATION_ARRIVAL_DISTANCE("stationArrivalDistanceRequest"),
+        STATION_MAX_LANDING_PAD_SIZE("stationMaxLandingPadSizeRequest"),
+        STATION_IS_PLANETARY("stationIsPlanetaryRequest"),
+        STATION_REQUIRE_ODYSSEY("stationRequireOdysseyRequest"),
+        SYSTEM_COORDINATES("systemCoordinatesRequest"),
+        SYSTEM_ELITE_ID("systemEliteIdRequest");
 
         private final String topicName;
 
@@ -22,12 +22,12 @@ public interface Topic {
     }
 
     enum Response {
-        STATION_ARRIVAL_DISTANCE_RESPONSE("%s_stationArrivalDistanceResponse"),
-        STATION_MAX_LANDING_PAD_SIZE_RESPONSE("%s_stationMaxLandingPadSizeResponse"),
-        STATION_IS_PLANETARY_RESPONSE("%s_stationIsPlanetaryResponse"),
-        STATION_REQUIRE_ODYSSEY_RESPONSE("%s_stationRequireOdysseyResponse"),
-        SYSTEM_COORDINATES_RESPONSE("%s_systemCoordinatesResponse"),
-        SYSTEM_ELITE_ID_RESPONSE("%s_systemEliteIdResponse");
+        STATION_ARRIVAL_DISTANCE("%s_stationArrivalDistanceResponse"),
+        STATION_MAX_LANDING_PAD_SIZE("%s_stationMaxLandingPadSizeResponse"),
+        STATION_IS_PLANETARY("%s_stationIsPlanetaryResponse"),
+        STATION_REQUIRE_ODYSSEY("%s_stationRequireOdysseyResponse"),
+        SYSTEM_COORDINATES("%s_systemCoordinatesResponse"),
+        SYSTEM_ELITE_ID("%s_systemEliteIdResponse");
 
         private final String topicName;
 
