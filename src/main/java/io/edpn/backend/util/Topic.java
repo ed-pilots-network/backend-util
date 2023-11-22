@@ -39,4 +39,20 @@ public interface Topic {
             return String.format(topicName, module.getName());
         }
     }
+
+    enum EDDN {
+        COMMODITY_V3("https___eddn.edcd.io_schemas_commodity_3"),
+        NAVROUTE_V1("https___eddn.edcd.io_schemas_navroute_1"),
+        JOURNAL_V1_SCAN("https___eddn.edcd.io_schemas_journal_1_scan");
+
+        private final String topicName;
+
+        EDDN(String topicName) {
+            this.topicName = topicName;
+        }
+
+        public String getTopicName() {
+            return topicName;
+        }
+    }
 }
