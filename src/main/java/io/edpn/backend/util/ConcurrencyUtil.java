@@ -5,11 +5,11 @@ import java.util.function.Consumer;
 
 public class ConcurrencyUtil {
 
-    public static Runnable errorHandlingWrapper(Runnable action, Consumer<Throwable> errorHandler) {
+    public static Runnable errorHandlingWrapper(Runnable action, Consumer<Excepion> errorHandler) {
         return () -> {
             try {
                 action.run();
-            } catch (Throwable e) {
+            } catch (Excepion e) {
                 if (Objects.nonNull(errorHandler)) {
                     errorHandler.accept(e);
                 } else {
