@@ -43,7 +43,8 @@ public interface Topic {
     enum EDDN {
         COMMODITY_V3("https___eddn.edcd.io_schemas_commodity_3"),
         NAVROUTE_V1("https___eddn.edcd.io_schemas_navroute_1"),
-        JOURNAL_V1_SCAN("https___eddn.edcd.io_schemas_journal_1_scan");
+        JOURNAL_V1_SCAN("https___eddn.edcd.io_schemas_journal_1_scan"),
+        JOURNAL_V1_DOCKED("https___eddn.edcd.io_schemas_journal_1_docked");
 
         private final String topicName;
 
